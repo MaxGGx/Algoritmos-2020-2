@@ -1,4 +1,4 @@
-# Algoritmos-2020-1
+# Algoritmos-2020-2
 Archivos de Tareas y de trabajos realizados para el ramo de Algoritmos y complejidad  
 
 ### Integrantes
