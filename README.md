@@ -1,7 +1,7 @@
 # Algoritmos-2020-1
 Archivos de Tareas y de trabajos realizados para el ramo de Algoritmos y complejidad  
 
-#Integrantes
+### Integrantes
  -Benjamin Opazo
  -Luis González
  -Iñaki Oyarzun
