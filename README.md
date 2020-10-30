@@ -2,9 +2,9 @@
 Archivos de Tareas y de trabajos realizados para el ramo de Algoritmos y complejidad  
 
 ### Integrantes
- -Benjamin Opazo
- -Luis González
- -Iñaki Oyarzun
+ - Benjamin Opazo
+ - Luis González
+ - Iñaki Oyarzun
 
 La informacion se encuentra dividida a partir de carpetas las cuales diferencian cada tarea
 Cada carpeta contiene:
