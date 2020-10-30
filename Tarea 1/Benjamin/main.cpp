@@ -3,7 +3,6 @@
 #include "cqueue.h"
 
 using namespace std;
-//using namespace cqueue;
 
 int main() {
 	cqueue Q;
