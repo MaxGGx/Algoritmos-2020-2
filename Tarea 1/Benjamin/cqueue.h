@@ -1,12 +1,12 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#define SIZE 50
+#define SIZE 80
 
 class cqueue {
 private:
 	int front;
 	int rear;
-	int items[SIZE][2];
+	int **items;
 public:
 	cqueue();
 	~cqueue();

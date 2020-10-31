@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "cqueue.h"
 
 using namespace std;
@@ -6,9 +7,18 @@ using namespace std;
 cqueue::cqueue() {
 	front = -1;
 	rear = -1;
+	items = (int **)malloc(SIZE * sizeof(int *));
+	int i;
+	for (i = 0; i < SIZE; i++)
+		items[i] = (int *)malloc(2 * sizeof(int));
 }
 
-cqueue::~cqueue() {}
+cqueue::~cqueue() {
+	int i;
+	for (i = 0; i < SIZE; i++)
+		free(items[i]);
+	free(items);
+}
 
 bool cqueue::isFull() {
 	if (front == 0 && rear == SIZE - 1) return true;

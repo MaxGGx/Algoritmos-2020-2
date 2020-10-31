@@ -1,11 +1,11 @@
 #ifndef LIST_H
 #define LIST_H
-#define MAX_SIZE 80
+#define MAX_SIZE 100
 
 class alist {
 private:
 	int length;
-	int array[MAX_SIZE][2];
+	int **array;
 public:
 	alist();
 	~alist();
