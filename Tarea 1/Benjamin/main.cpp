@@ -5,14 +5,32 @@
 
 using namespace std;
 
-//x mide desde arriba hacia abajo: 1-n
-//y mide desde izquierda hacia derecha: 1-m
+/*
+x mide desde arriba hacia abajo: 1-n
+y mide desde izquierda hacia derecha: 1-m
+
+FUNCION AUXILIAR
+bool checkCoor(int, int, int, int)
+Recibe el tamano del mapa (n, m) y un par de coordenadas (x, y)
+Chequea si las coordenadas dadas estan dentro de los limites del mapa
+*/
 
 bool checkCoor(int n, int m, int x, int y) {
-	if (x > n || x <= 0) return false;
-	if (y > m || y <= 0) return false;
+	if (x >= n || x < 0) return false;
+	if (y >= m || y < 0) return false;
 	return true;
 }
+
+/*
+ALGORITMO PRINCIPAL
+int Lagunas(char **, int, int, int, int) 
+Recibe el mapa (grid), su tamano (n, m) y las coordenadas de la primera
+casilla de agua (x1, y1)
+Encola dicha casilla y la marca como revisada (la agrega a la lista), luego
+mientras exista un par de coordenadas en la cola, revisa la 8 casillas adyacentes:
+Si son agua, las encola para iterar en ellas posteriormente y las marca como revisadas,
+suma al contador total y termina la iteracion actual
+*/
 
 int Lagunas(char **grid, int n, int m, int x1, int y1) {
 	int fin = 1;
@@ -21,6 +39,7 @@ int Lagunas(char **grid, int n, int m, int x1, int y1) {
 	cqueue Q;
 	alist L;
 	Q.enQueue(x1, y1);
+	L.append(x1, y1);
 
 	while (!Q.isEmpty()) {
 		int temp[2];
