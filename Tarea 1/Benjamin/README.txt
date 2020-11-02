@@ -9,7 +9,8 @@ Consideraciones:
  enunciado de la tarea.
 
 -Se asume que las coordenadas (i, j) que se evaluaran siempre representan
- una casilla de agua, como se ve en el enunciado de la tarea.
+ una casilla de agua, como se ve en el enunciado de la tarea. De todas formas,
+ si se consulta por una casilla de Tierra (L), printea un 0.
  
 -Generalizando, se asume inputs correctos.
 
