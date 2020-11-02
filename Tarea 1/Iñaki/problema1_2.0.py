@@ -1,15 +1,6 @@
 soluciones=[]
 
-def tool(lista,num):
-	x = 0
-	for c in lista:
-		x += c
-	if x == num:
-		return True
-	else:
-		return False
-
-def printSubs(lista,target):
+def printSubsecuencia(lista,target):
 	global soluciones
 	listaP = []
 	sumaT = 0
@@ -24,23 +15,23 @@ def printSubs(lista,target):
 		soluciones.append(listaP)
 		print("+".join(list(map(str,listaP))))
 
-def subSum(conjuntos,valores,Sconjuntos,Svalores,suma,node,target):
+def subSumas(conjuntos,valores,Subconjuntos,Subvalores,suma,nodo,target):
 	if target == suma:
-		printSubs(valores,target)
-		if(node+1 < Sconjuntos and suma-conjuntos[node]+conjuntos[node+1] <= target):
-			subSum(conjuntos,valores,Sconjuntos,Svalores-1,suma-conjuntos[node],node+1,target)
+		printSubsecuencia(valores,target)
+		if(nodo+1 < Subconjuntos and suma-conjuntos[nodo]+conjuntos[nodo+1] <= target):
+			subSumas(conjuntos,valores,Subconjuntos,Subvalores-1,suma-conjuntos[nodo],nodo+1,target)
 		return 0
 	else:
-		if node < Sconjuntos and suma+conjuntos[node] <= target:
-			i = node
-			while i < Sconjuntos:
-				valores[Svalores] = conjuntos[i]
+		if nodo < Subconjuntos and suma+conjuntos[nodo] <= target:
+			i = nodo
+			while i < Subconjuntos:
+				valores[Subvalores] = conjuntos[i]
 				valores.append(0)
 				if(suma+conjuntos[i] <= target):
-					subSum(conjuntos,valores,Sconjuntos,Svalores+1,suma+conjuntos[i],i+1,target)
+					subSumas(conjuntos,valores,Subconjuntos,Subvalores+1,suma+conjuntos[i],i+1,target)
 				i += 1
 
-def generateSubs(conjuntos,Sconjuntos,target):
+def generaSubconjuntos(conjuntos,Sconjuntos,target):
 	valores = [0]
 	total = 0
 	conjuntos.reverse()
@@ -49,7 +40,7 @@ def generateSubs(conjuntos,Sconjuntos,target):
 		total += conjuntos[i]
 		i += 1
 	if conjuntos[0] <= target and total >= target:
-		subSum(conjuntos,valores,Sconjuntos,0,0,0,target)
+		subSumas(conjuntos,valores,Sconjuntos,0,0,0,target)
 		return 0
 
 print("  _______                     __ ")                        
@@ -80,5 +71,5 @@ for entrada in inputs:
 	for x in range(2,entrada[1]+2):
 		items.append(entrada[x])
 	print("Suma de "+str(target)+":")
-	if generateSubs(items,len(items),target) == None:
+	if generaSubconjuntos(items,len(items),target) == None:
 		print("NADA")
