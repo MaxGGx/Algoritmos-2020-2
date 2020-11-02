@@ -10,3 +10,13 @@ Consideraciones:
 
 -Se asume que las coordenadas (i, j) que se evaluaran siempre representan
  una casilla de agua, como se ve en el enunciado de la tarea.
+ 
+-Generalizando, se asume inputs correctos.
+
+-Se probo pasando la entrada estandar por un archivo como en el enunciado
+ (./a.out < input.txt), lo que tiende a ignorar o hacer cosas raras con las
+ lineas vacias. Aun asi, la diferencia con entrar las lineas a mano una a una,
+ sera que printeara instantaneamente.
+ 
+Makefile:
+-Basta con escribir "make" o "make all" en la consola.
