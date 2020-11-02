@@ -38,6 +38,9 @@ int Lagunas(char **grid, int n, int m, int x1, int y1) {
 	int fin = 1;
 	x1--;
 	y1--;
+
+	if (grid[x1][y1] == 'L') return 0;
+
 	cqueue Q;
 	alist L;
 	Q.enQueue(x1, y1);
