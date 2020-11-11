@@ -12,5 +12,8 @@ main: main.o
 main.o: main.cpp
 	g++ -W -c main.cpp -o main.o
 
+pregunta1: pregunta1.py
+	python3 pregunta1.py
+
 clean:
 	rm *.o
