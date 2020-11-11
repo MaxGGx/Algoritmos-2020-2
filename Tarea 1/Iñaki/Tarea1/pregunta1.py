@@ -1,5 +1,9 @@
 soluciones=[]
 
+'''
+lista = lista de elementos que conforman la sumatoria que es igual a target
+target = valor que se buscaba sumar con los elementos del input
+'''
 def printSubsecuencia(lista,target):
 	global soluciones
 	listaP = []
@@ -11,10 +15,19 @@ def printSubsecuencia(lista,target):
 				listaP.append(item)
 			else:
 				break
+	listaP.sort(reverse=True)
 	if sum(listaP) == target and (listaP not in soluciones):	
 		soluciones.append(listaP)
 		print("+".join(list(map(str,listaP))))
-
+'''
+conjuntos = lista de conjuntos a evaluar para generar la suma
+valores = lista que contiene los números que califican para llegar a la suma indicada
+subconjuntos = tamaño de la lista conjuntos
+subvalores = tamaño de la lista valores
+suma = valor sumado hasta el momento
+nodo = nodo del arbol (teoricamente) sobre el que se encuentra
+target = valor a encontrar
+'''
 def subSumas(conjuntos,valores,Subconjuntos,Subvalores,suma,nodo,target):
 	if target == suma:
 		printSubsecuencia(valores,target)
@@ -31,6 +44,11 @@ def subSumas(conjuntos,valores,Subconjuntos,Subvalores,suma,nodo,target):
 					subSumas(conjuntos,valores,Subconjuntos,Subvalores+1,suma+conjuntos[i],i+1,target)
 				i += 1
 
+'''
+conjuntos = lista de posibles conjuntos de números que califican para llegar a la suma especificada
+Sconjuntos = tamaño de la lista conjuntos
+target = valor a encontrar en la sumatoria de elementos
+'''
 def generaSubconjuntos(conjuntos,Sconjuntos,target):
 	valores = [0]
 	total = 0
