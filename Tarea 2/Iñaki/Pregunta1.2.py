@@ -1,7 +1,7 @@
-def Pregunta1(lista, tamanio, B):
+def Pregunta1(lista, tamanio, s):
 	
-	if(tamanio < B):
-		return "Entrada no valida"
+	if(tamanio < s):
+		return "Entrada no valida para trampas"
 
 	sol=-1
 
@@ -29,13 +29,13 @@ def Pregunta1(lista, tamanio, B):
 		flag = 0
 
 		'''
-		en esta seccion ocurre la busqueda de numeros, planteo como primera posicion (actual) de la primera bomba (colocadas)
+		en esta seccion ocurre la busqueda de numeros, planteo como primera posicion (actual) de la primera trampa (colocadas)
 		y desde ahi recorro el resto de la lista siempre comparando la resta de valores para que revise si encuentra alguno que
 		cumpla la condicion con el numero propuesto, en caso de hallarlo, marco esa posicion al sustituir el actual con ese valor 
-		y a la vez "coloco" una bomba (colocadas+=1), finalmente sigo iterando para el resto de bombas. Lo interesante, es que
+		y a la vez "coloco" una trampa (colocadas+=1), finalmente sigo iterando para el resto de trampas. Lo interesante, es que
 		si encuentra una resta que sea mayor al propuesto, al continuar comparando puede que haya una resta menor a la que ya se tiene
-		por eso el ciclo for continua. Finalmente, si no logra colocar todas las bombas o el ciclo se termina. Quiere decir que el valor
-		propuesto no fué hallado, por lo que la búsqueda binaria, se volvera a hacer ahora por el lado izquierdo del arreglo al no hallar
+		por eso el ciclo for continua. Finalmente, si no logra colocar todas las trampas o el ciclo se termina. Quiere decir que el valor
+		propuesto no fué hallado, por lo que la búsqueda binaria se volvera a hacer ahora por el lado izquierdo del arreglo al no hallar
 		posibilidades en la parte mas alta. De esa forma se tiene una forma de resolucion a partir de Decrecer y conquistar, al reducir con
 		la busqueda binaria los espacios de busqueda (valga la redundancia) para determinar el valor solicitado.
 		'''
@@ -43,7 +43,7 @@ def Pregunta1(lista, tamanio, B):
 			if((lista[a] -  actual) >= prop):
 				actual = lista[a]
 				colocadas+=1
-				if(colocadas == B):
+				if(colocadas == s):
 					if(sol < prop):
 						sol = prop
 					izq = prop+1
@@ -54,6 +54,17 @@ def Pregunta1(lista, tamanio, B):
 
 	return sol
 
-print(Pregunta1([9,12], len([9,12]), 3))
+string=input()
+string2=input()
 
+n=int(string.split(" ")[0])
+s=int(string.split(" ")[1])
 
+lista = [int(i) for i in string2.split(" ")]
+
+if(len(lista) > n):
+	print("Error en el ingreso de datos: n es menor que los valores entregados")
+elif(len(lista) < n):
+	print("Error en el ingreso de datos: n es mayor que los valores entregados")
+else:
+	print(Pregunta1(lista, n, s))
