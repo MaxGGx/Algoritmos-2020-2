@@ -61,6 +61,7 @@ n=int(string.split(" ")[0])
 s=int(string.split(" ")[1])
 
 lista = [int(i) for i in string2.split(" ")]
+lista.sort() #se ordena solo para casos que la entrada no sea ordenada
 
 if(len(lista) > n):
 	print("Error en el ingreso de datos: n es menor que los valores entregados")
