@@ -53,7 +53,7 @@ def SAML_PD(lista):
 	#Return relacionado a la pregunta 1
 	return tamanio-max(subLista)
 
-print(SAML_PD([3,1,5,0]))
+print(SAML_PD([1,2,3,4,2,7]))
 
 
 
