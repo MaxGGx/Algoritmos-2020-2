@@ -47,7 +47,7 @@ def SAML_PD(lista):
 	for posicion, valor in enumerate(lista):
 		if (posicion >= 1):
 			for i in range(0,posicion):
-				if(valor > lista[i] and subLista[posicion] < subLista[i]+1):
+				if(valor >= lista[i] and subLista[posicion] <= subLista[i]+1):
 					subLista[posicion] = subLista[i] + 1
 	
 	#Return relacionado a la pregunta 1
